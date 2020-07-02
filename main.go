@@ -10,6 +10,7 @@ import (
 func main() {
 	e := echo.New()
 	e.Debug = true
+	e.Use(middleware.Recover())
 	e.Use(middleware.Logger())
 	rootRoutes := e.Group("")
 	api.ApplyRoutes(rootRoutes)
