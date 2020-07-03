@@ -12,7 +12,6 @@ func main() {
 	e.Debug = true
 	e.Use(middleware.Recover())
 	e.Use(middleware.Logger())
-	rootRoutes := e.Group("")
-	api.ApplyRoutes(rootRoutes)
+	api.ApplyRoutes(e)
 	e.Logger.Fatal(e.Start(":3001"))
 }
